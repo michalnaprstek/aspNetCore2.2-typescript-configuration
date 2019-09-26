@@ -1,0 +1,29 @@
+{
+  "version": "1.0.0",
+  "name": "asp.net",
+  "private": true,
+  "devDependencies": {
+    "@babel/core": "^7.6.2",
+    "@babel/plugin-transform-classes": "^7.5.5",
+    "@babel/preset-env": "^7.6.2",
+    "babelify": "^10.0.0",
+    "regenerator-runtime": "^0.13.3",
+    "browserify": "^16.5.0",
+    "core-js": "^3.2.1",
+    "tsify": "^4.0.1",
+    "typescript": "^3.6.3"
+  },
+  "browserslist": [
+    "> 1%"
+  ],
+  "scripts": {
+    "build-js": "browserify --s ComponentGate -p tsify -t [ babelify --extensions .ts --presets [ @babel/preset-env ] ] Scripts\\main.ts > wwwroot\\js\\bundle.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "-vs-binding": {
+    "AfterBuild": [
+      "build-js"
+    ]
+  }
+}
